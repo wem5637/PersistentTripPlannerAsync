@@ -5,7 +5,6 @@ var Restaurant = require('../models/restaurant');
 var Activity = require('../models/activity');
 var Day = require('../models/day');
 
-
 router.get('/', function(req, res, next) {
 
     res.render('index')
@@ -47,6 +46,15 @@ router.route('/api/day').get(function(req,res,next){
     res.json(arr);
   });
 });
+
+router.route('/api/day/:id').post(function(req,res,next){
+  //form day Instance
+  var resobj = {};
+  resobj.id = req.params.id;
+  resobj.day = Day.create( {name:req.params.id,});
+  res.json(resobj);
+});
+
 
 module.exports = router;
 

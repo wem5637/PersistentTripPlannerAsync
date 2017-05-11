@@ -49,6 +49,7 @@ var tripModule = (function () {
     if (this && this.blur) this.blur(); // removes focus box from buttons
     var newDay = dayModule.create({ number: days.length + 1 }); // dayModule
     days.push(newDay);
+    $.post('/api/day/' + days.length);
     if (days.length === 1) {
       currentDay = newDay;
     }
