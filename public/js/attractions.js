@@ -8,7 +8,7 @@
  */
 
 
-var attractionsModule = function() {
+var initAttractionsModule = function() {
 
          var enhanced = {
               hotels: hotels.map(attractionModule.create),
@@ -48,3 +48,4 @@ var attractionsModule = function() {
     return publicAPI;
 
 };
+var attractionsModule = initAttractionsModule();

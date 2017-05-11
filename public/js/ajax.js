@@ -1,6 +1,6 @@
-var hotels;
-var restaurants;
-var activities;
+var hotels=[];
+var restaurants=[];
+var activities=[];
 
 // application state
 
@@ -34,7 +34,8 @@ Promise.all([hotelPromise, restPromise, activityPromise])
         restaurants = rest;
         activities = activ;
 
-        attractionsModule = attractionsModule();
+        //attractionsModule = attractionsModule();
+	attractionsModule = initAttractionsModule();
         assignOptions();
     
 
