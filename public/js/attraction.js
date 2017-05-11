@@ -31,9 +31,12 @@ var attractionModule = (function () {
   function Attraction (data) {
     utilsModule.merge(data, this); // copy all key-val pairs into this new obj
     this.buildItineraryItem().buildMarker();
+    
   }
 
   Attraction.prototype.buildItineraryItem = function () {
+  // $.update('/api/day/'+this.name);
+   
     var $button = $('<button class="btn btn-xs btn-danger remove btn-circle">x</button>');
     var $title = $('<span class="title"></span>').text(this.name);
     this.$itineraryItem = $('<div class="itinerary-item"></div>')

@@ -98,15 +98,36 @@ var dayModule = (function () {
       case 'hotel':
         if (this.hotel) this.hotel.hide();
         this.hotel = attraction;
+        // console.log(this.hotel.id);
+        $.ajax({
+          method: 'PUT',
+          url:'/api/day/' + this.number + '/hotel',
+          data: {hotelId: this.hotel.id}
+        });
         break;
       case 'restaurant':
         utilsModule.pushUnique(this.restaurants, attraction);
+        console.log(attraction.id);
+        $.ajax({
+          method: 'PUT',
+          url:'/api/day/' + this.number + '/restaurant',
+          data: {restaurantId: attraction.id}
+
+        });        
         break;
       case 'activity':
         utilsModule.pushUnique(this.activities, attraction);
+        $.ajax({
+          method: 'PUT',
+          url:'/api/day/' + this.number + '/activity',
+          data: {activityId: attraction.id}
+
+        });        
         break;
       default: console.error('bad type:', attraction);
     }
+
+
     // activating UI
     attraction.show();
   };
